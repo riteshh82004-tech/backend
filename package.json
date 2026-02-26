@@ -1,0 +1,53 @@
+{
+  "name": "biomatrix",
+  "version": "1.0.0",
+  "description": "A project inspired by YouTube",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "mongoose",
+    "express"
+  ],
+  "author": "Dhruv Singh Kushwaha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "dotenv": "latest",
+    "cors": "latest",
+    "helmet": "latest",
+    "express-rate-limit": "latest",
+    "express-mongo-sanitize": "latest",
+    "express-validator": "latest",
+    "express-session": "^1.18.1",
+    "hpp": "^0.2.3",
+    "mongoose": "latest",
+    "joi": "latest",
+    "cookie-parser":"latest",
+    "validator": "latest",
+    "bcryptjs": "latest",
+    "passport": "latest",
+    "passport-local": "^1.0.0",
+    "passport-google-oauth20": "latest",
+    "jsonwebtoken": "latest",
+    "express-async-errors": "latest",
+    "http-status-codes": "latest",
+    "winston": "latest",
+    "morgan": "latest",
+    "express-fileupload": "latest",
+    "cloudinary": "latest",
+    "nodemailer": "latest",
+    "@sendgrid/mail": "latest",
+    "@paypal/paypal-server-sdk": "latest",
+    "moment": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest",
+    "prettier": "latest"
+  }
+}
