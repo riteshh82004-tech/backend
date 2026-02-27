@@ -11,9 +11,9 @@ export const register = async (req, res) => {
   // Check for validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(StatusCodes.BAD_REQUEST).json({ 
+    return res.status(StatusCodes.BAD_REQUEST).json({
       success: false,
-      errors: errors.array() 
+      errors: errors.array()
     });
   }
 
@@ -64,9 +64,9 @@ export const login = async (req, res, next) => {
   // Check for validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(StatusCodes.BAD_REQUEST).json({ 
+    return res.status(StatusCodes.BAD_REQUEST).json({
       success: false,
-      errors: errors.array() 
+      errors: errors.array()
     });
   }
 
@@ -74,7 +74,7 @@ export const login = async (req, res, next) => {
     if (err) {
       return next(err);
     }
-    
+
     if (!user) {
       return res.status(StatusCodes.UNAUTHORIZED).json({
         success: false,
@@ -113,7 +113,7 @@ export const logout = async (req, res) => {
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict"
   });
-  
+
   res.status(StatusCodes.OK).json({
     success: true,
     message: "Logged out successfully"
@@ -125,7 +125,7 @@ export const googleCallback = async (req, res, next) => {
     if (err) {
       return res.redirect(`${CLIENT_URL}/login?error=Google+authentication+failed`);
     }
-    
+
     if (!user) {
       return res.redirect(`${CLIENT_URL}/login?error=Google+authentication+failed`);
     }
@@ -142,7 +142,7 @@ export const googleCallback = async (req, res, next) => {
     });
 
     // Redirect to client URL with token in query parameter
-    res.redirect(`${CLIENT_URL}/?token=${token}`);
+    res.redirect(`${CLIENT_URL}/?token=${token}&step=register`);
   })(req, res, next);
 };
 
@@ -150,7 +150,7 @@ export const getCurrentUser = async (req, res) => {
   try {
     const { id } = req.user; // From authentication middleware
     const user = await User.findById(id);
-    
+
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({
         success: false,
