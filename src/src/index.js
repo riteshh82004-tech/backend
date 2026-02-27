@@ -48,7 +48,7 @@ apiRouter.get("/dashboard", authentication, (req, res) => {
 });
 
 apiRouter.get("/profile", authentication, (req, res) => {
-  res.render({ user: req.user });
+  res.get({ user: req.user });
 });
 
 app.use("/api", apiRouter);
