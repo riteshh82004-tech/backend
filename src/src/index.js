@@ -35,7 +35,7 @@ const apiRouter = express.Router();
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "BioMatrix API running" });
 });
-app.get("/healthz", (req, res) => {
+app.get("/healtz", (req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
 });
 // Routes (MUST be after global middlewares and valid)
