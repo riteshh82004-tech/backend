@@ -29,22 +29,27 @@ setupPassport(app);
 // Configure passport strategies
 setupPassportStrategies();
 
+const apiRouter = express.Router();
 
+// Simple root route for health checks / sanity
+app.get("/", (req, res) => {
+  res.json({ status: "ok", message: "BioMatrix API running" });
+});
 
 // Routes (MUST be after global middlewares and valid)
 
-app.use("/auth", AuthRouter);
+apiRouter.use("/auth", AuthRouter);
 
 // Protected routes
-app.get("/dashboard", authentication, (req, res) => {
+apiRouter.get("/dashboard", authentication, (req, res) => {
   res.get({ user: req.user });
 });
 
-app.get("/profile", authentication, (req, res) => {
+apiRouter.get("/profile", authentication, (req, res) => {
   res.render({ user: req.user });
 });
 
-
+app.use("/api", apiRouter);
 
 
 

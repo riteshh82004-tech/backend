@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const PORT = process.env.PORT;
+export const PORT = process.env.PORT || 5000;
 export const CORS_ORIGEN = process.env.CORS_ORIGEN || "http://localhost:5173";
 export const CLIENT_URL = process.env.CLIENT_URL || CORS_ORIGEN;
 export const MONGO_URI = process.env.MONGO_URI;
